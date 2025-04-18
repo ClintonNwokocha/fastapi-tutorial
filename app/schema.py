@@ -18,7 +18,7 @@ class UserResponse(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class Post(PostBase):
     id: int
@@ -27,7 +27,7 @@ class Post(PostBase):
     owner: UserResponse
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PostOut(BaseModel):
     Post:Post

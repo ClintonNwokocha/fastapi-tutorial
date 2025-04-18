@@ -12,9 +12,9 @@ import urllib.parse
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-encoded_password = urllib.parse.quote_plus(settings.database_password)
-escaped_password = encoded_password.replace('%', '%%')
-config.set_main_option("sqlalchemy.url", f"postgresql://{settings.database_username}:{escaped_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}")
+#encoded_password = urllib.parse.quote_plus(settings.database_password)
+#escaped_password = encoded_password.replace('%', '%%')
+config.set_main_option("sqlalchemy.url", f"postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}")
 
 
 
